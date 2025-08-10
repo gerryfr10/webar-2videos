@@ -1,31 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>WebAR: Dos Videos</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebAR Video</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.8thwall.com/web/aframe/8thwall.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
   </head>
-  <body>
-    <a-scene
-      xrweb
-      embedded
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-      vr-mode-ui="enabled: false"
-      device-orientation-permission-ui="enabled: true">
-
+  <body style="margin: 0; overflow: hidden;">
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
       <a-assets>
-        <video id="video1" src="https://drive.google.com/uc?export=preview&id=16UjIO5EHh10ObxZYewRH62oybmGkabqB" autoplay loop muted playsinline webkit-playsinline></video>
-        <video id="video2" src="https://drive.google.com/uc?export=preview&id=1Txl0ZEbdpTGFh1zyr2dqXaL23xA6WsuK" autoplay loop muted playsinline webkit-playsinline></video>
+        <video id="video1" src="https://drive.google.com/uc?export=preview&id=1Txl0ZEbdpTGFh1zyr2dqXaL23xA6WsuK" autoplay loop muted playsinline webkit-playsinline></video>
       </a-assets>
 
-      <a-marker preset="custom" type="pattern" url="pattern-marker1.patt">
+      <a-marker type="pattern" url="pattern-marker1.patt">
         <a-video src="#video1" width="1.2" height="0.675" position="0 0 0" rotation="-90 0 0"></a-video>
-      </a-marker>
-
-      <a-marker preset="custom" type="pattern" url="pattern-marker2.patt">
-        <a-video src="#video2" width="1.2" height="0.675" position="0 0 0" rotation="-90 0 0"></a-video>
       </a-marker>
 
       <a-entity camera></a-entity>
