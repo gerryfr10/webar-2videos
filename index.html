@@ -17,5 +17,17 @@
 
       <a-entity camera></a-entity>
     </a-scene>
+
+    <script>
+  // Espera a que el marcador se detecte
+  document.querySelector("a-marker").addEventListener("markerFound", function () {
+    var videoEl = document.querySelector("#video1");
+    if (videoEl && videoEl.paused) {
+      videoEl.play().catch((e) => {
+        console.log("No se pudo reproducir automáticamente:", e);
+      });
+    }
+  });
+</script>
   </body>
 </html>
